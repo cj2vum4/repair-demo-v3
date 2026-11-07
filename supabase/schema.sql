@@ -9,6 +9,8 @@ CREATE TABLE public.repair_requests (
     location text NOT NULL,
     category text NOT NULL,
     description text NOT NULL,
+    assignee text,
+    photo_url text,
     urgency text NOT NULL DEFAULT '中',
     status text NOT NULL DEFAULT '待處理',
 
@@ -45,7 +47,7 @@ GRANT SELECT ON TABLE public.repair_requests TO anon;
 
 -- 前端新增時只送表單欄位，UUID、建立時間及狀態由資料庫填入。
 -- 緊急程度可省略，省略時使用預設值「中」。
-GRANT INSERT (reporter_name, location, category, description, urgency)
+GRANT INSERT (reporter_name, location, category, description, assignee, photo_url, urgency)
     ON TABLE public.repair_requests TO anon;
 
 -- RLS：啟用資料列安全，公開清單由訪客使用 anon 角色讀取。
