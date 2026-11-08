@@ -1,0 +1,108 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, "Microsoft JhengHei", sans-serif;
+  color: #16302e;
+  background: #edf4f1;
+  line-height: 1.6;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+h1, h2, h3, p { margin: 0; }
+
+.page {
+  width: min(100% - 2rem, 52rem);
+  margin: 2rem auto 3rem;
+}
+
+.hero, .panel { border-radius: 1rem; }
+
+.hero {
+  padding: clamp(1.5rem, 5vw, 3rem);
+  background: #104b43;
+  color: #fff;
+}
+
+.hero h1 { font-size: clamp(2rem, 5vw, 3rem); }
+.hero p { color: #dbf3eb; }
+.eyebrow { font-size: .85rem; font-weight: 700; letter-spacing: .15em; }
+
+.panel {
+  margin-top: 1rem;
+  padding: clamp(1rem, 4vw, 2rem);
+  border: 1px solid #d5e4de;
+  background: #fff;
+}
+
+h2 { font-size: 1.35rem; margin-bottom: .5rem; }
+.section-note, .request-meta { color: #49635e; font-size: .9rem; }
+
+fieldset {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  min-inline-size: 0;
+  margin: 1rem 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.field { display: grid; gap: .3rem; }
+.full-width { grid-column: 1 / -1; }
+label { font-weight: 650; }
+input, select, textarea, button { font: inherit; }
+
+input, select, textarea {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: .55rem .7rem;
+  border: 1px solid #819b92;
+  border-radius: .5rem;
+  background: #fff;
+  color: inherit;
+}
+
+textarea { resize: vertical; }
+:focus-visible { outline: 3px solid #008575; outline-offset: 2px; }
+
+button {
+  justify-self: start;
+  border: 0;
+  border-radius: .5rem;
+  padding: .6rem 1.1rem;
+  background: #104b43;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) { background: #176759; }
+button:disabled { opacity: .6; cursor: not-allowed; }
+.message:not(:empty) { margin-top: .75rem; }
+.message[data-kind="error"] { color: #a12520; }
+.message[data-kind="success"] { color: #176243; }
+
+.request-list {
+  display: grid;
+  gap: .65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.request-list:not(:empty) { margin-top: 1rem; }
+.request {
+  padding: .9rem 1rem;
+  border: 1px solid #d5e4de;
+  border-radius: .65rem;
+  background: #f8fbfa;
+  overflow-wrap: anywhere;
+}
+
+.request h3 { font-size: 1rem; }
+.request-description { margin-top: .4rem; white-space: pre-wrap; }
+
+@media (max-width: 34rem) {
+  .page { margin-top: 1rem; }
+  fieldset { grid-template-columns: 1fr; }
+}
